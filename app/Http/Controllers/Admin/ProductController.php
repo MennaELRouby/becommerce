@@ -36,7 +36,14 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
-        $data = $request->all();
+
+        $data = $request->validate([
+            'name'           =>  'required|string|max:255',
+            'description'    =>  'required',
+            'size'          =>   'required',
+            'image'         =>    'required|image|mimes:png,jpg,jpeg|max:10000',
+        ]);
+        $data['category_id'] = $request['category_id'];
         $fileName = $this->uploadFile(file: $request->image, path: 'assets\img');
         $data['image'] = $fileName;
 
