@@ -4,7 +4,7 @@
             <div class="col-md-5">
                 <!-- Logo -->
                 <div class="logo">
-                    <h1><a href="{{route('admin.index')}}">Admin</a></h1>
+                    <h1><a href="{{ route('admin.index') }}">Admin</a></h1>
                 </div>
             </div>
 
@@ -13,11 +13,11 @@
                     <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="{{url('/')}}" class="dropdown-toggle" data-toggle="dropdown">My Site <b
-                                            class="caret"></b></a>
+                                <a href="{{ url('/') }}" class="dropdown-toggle"
+                                    data-toggle="dropdown">{{ Auth::user()->name }}<b class="caret"></b></a>
                                 <ul class="dropdown-menu animated fadeInUp">
-                                    <li><a href="{{url('/')}}">Front End</a></li>
-                                    <li><a href="{{url('/logout')}}">Logout</a></li>
+                                    <li><a href="{{ url('/') }}">Front End</a></li>
+                                    <li><a href="{{ url('/logout') }}">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>

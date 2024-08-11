@@ -23,4 +23,4 @@ Route::get('shirt', [FrontController::class, 'shirt'])->name('shirt');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
