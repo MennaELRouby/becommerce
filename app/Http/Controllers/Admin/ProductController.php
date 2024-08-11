@@ -3,17 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Traits\Common;
+
 
 class ProductController extends Controller
 {
+    use Common;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view("admin.product.addproduct");
+        return view('admin.index');
     }
 
     /**
@@ -22,6 +26,8 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $cat = Category::select('id', 'name')->get();
+        return view("admin.product.create", compact('cat'));
     }
 
     /**
@@ -30,6 +36,12 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $fileName = $this->uploadFile(file: $request->image, path: 'assets\img');
+        $data['image'] = $fileName;
+
+        Product::create($data);
+        return redirect()->route('admin.index');
     }
 
     /**
