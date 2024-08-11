@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Traits\Common;
+use Illuminate\Support\Facades\DB;
 
 
 class ProductController extends Controller
@@ -17,7 +18,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $cat = Category::select('id', 'name')->get();
+        $products = DB::table('products')->get();
+        $procat = Product::with('category')->get();
+
+        return view('admin.product.index', compact(['cat', 'products', 'procat']));
     }
 
     /**
