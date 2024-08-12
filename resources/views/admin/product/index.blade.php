@@ -1,6 +1,6 @@
 @extends('admin.layout.admin')
 @section('content')
-    <div class="container">
+    <div class="row">
         <h2>Products List</h2>
         <p> Products List Using Laravel Eloquent ORM</p>
         <table class="table table-hover">
@@ -8,6 +8,7 @@
                 <tr>
                     <th><span>name</span></th>
                     <th><span>size</span></th>
+                    <th><span>price</span></th>
                     <th><span>description</span></th>
                     <th><span>category</span></th>
                     <th><span>Image</span></th>
@@ -25,6 +26,7 @@
                     <tr>
                         <td class="lalign">{{ $data->name }}</td>
                         <td>{{ $data->size }}</td>
+                        <td>{{ $data->price }}</td>
                         <td>{{ $data->description }}</td>
                         <td>{{ $data->category->name }}</td>
                         <td>{{ $data->image }}</td>

@@ -46,6 +46,7 @@ class ProductController extends Controller
             'name'           =>  'required|string|max:255',
             'description'    =>  'required',
             'size'          =>   'required',
+            'price'          =>   'required',
             'image'         =>    'required|image|mimes:png,jpg,jpeg|max:10000',
         ]);
         $data['category_id'] = $request['category_id'];

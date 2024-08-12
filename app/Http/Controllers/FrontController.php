@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Category;
+
 
 class FrontController extends Controller
 {
@@ -15,7 +18,8 @@ class FrontController extends Controller
     }
     public function shirts()
     {
-        return view("front.shirts");
+        $shirts = Product::all();
+        return view("front.shirts", compact('shirts'));
     }
 
     public function shirt()

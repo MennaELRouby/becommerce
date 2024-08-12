@@ -13,6 +13,10 @@
                 <input type="text" class="form-control" id="size" placeholder="Enter size" name="size">
             </div>
             <div class="form-group text-left">
+                <label for="price">price:</label>
+                <input type="text" class="form-control" id="price" placeholder="Enter size" name="price">
+            </div>
+            <div class="form-group text-left">
                 <label for="description">Description:</label>
                 <textarea class="form-control" rows="5" id="description" name="description"></textarea>
             </div>
