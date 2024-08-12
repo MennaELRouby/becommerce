@@ -15,7 +15,10 @@
                     <li><a href="{{ route('createproduct') }}">Add Product</a></li>
                 </ul>
                 <ul>
-                    <li><a href="{{ route('productlist') }}">Product List</a></li>
+                    <li><a href="{{ route('productlist') }}">Products List</a></li>
+                </ul>
+                <ul>
+                    <li><a href="{{ route('category') }}">Categories</a></li>
                 </ul>
             </li>
         </ul>

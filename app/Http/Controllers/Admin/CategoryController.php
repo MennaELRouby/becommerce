@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -11,23 +13,23 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $cat = Category::all();
+        return view('admin.product.category', compact('cat'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Category::create($data);
+        return redirect()->back();
     }
 
     /**
@@ -35,7 +37,9 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Category::findOrFail($id)->product;
+        $cat = Category::all();
+        return view('admin.product.category', compact(['cat', 'product']));
     }
 
     /**
