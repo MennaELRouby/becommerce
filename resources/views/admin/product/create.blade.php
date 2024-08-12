@@ -14,7 +14,7 @@
             </div>
             <div class="form-group text-left">
                 <label for="price">price:</label>
-                <input type="text" class="form-control" id="price" placeholder="Enter size" name="price">
+                <input type="number" class="form-control" id="price" placeholder="Enter size" name="price">
             </div>
             <div class="form-group text-left">
                 <label for="description">Description:</label>
