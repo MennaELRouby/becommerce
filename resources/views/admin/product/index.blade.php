@@ -2,7 +2,6 @@
 @section('content')
     <div class="row">
         <h2>Products List</h2>
-        <p> Products List Using Laravel Eloquent ORM</p>
         <table class="table table-hover">
             <thead>
                 <tr>

@@ -21,6 +21,12 @@ Route::get('home', [FrontController::class, 'index'])->name('home');
 Route::get('shirts', [FrontController::class, 'shirts'])->name('shirts');
 Route::get('shirt', [FrontController::class, 'shirt'])->name('shirt');
 
+//Route::resource('cart', 'CartController');
+Route::get('cart/{id}', 'CartController@edit')->name('cart.edit');
+Route::get('cart', 'CartController@index')->name('add.cart');
+
+
+
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
