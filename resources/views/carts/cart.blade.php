@@ -17,10 +17,26 @@
                     <tr>
                         <td class="lalign">{{ $data->name }}</td>
                         <td>{{ $data->price }}</td>
-                        <td>{{ $data->description }}</td>
+                        <td width="50px">
+                            <form action="ucart/{{ $data->id }}" method="POST">
+                                @csrf
+                                @method('put')
+                                {{ $data->quantity }}
+                                <input type="text" name="qty" value="" placeholder="Enter quantity">
+                                <input type="submit" value="Add or reduce qty">
+                                <a href="deletecart/{{ $data->id }}"
+                                    onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+
+                            </form>
+                        </td>
                         <td>{{ $data->attributes->has('size') ? $data->attributes->size : '' }}</td>
                     </tr>
                 @endforeach
+                <tr>
+                    <td> total: {{ Cart::getTotal() }}</td>
+                    <td> total Items:{{ Cart::getTotalQuantity() }}</td>
+
+                </tr>
             </tbody>
         </table>
     </div>

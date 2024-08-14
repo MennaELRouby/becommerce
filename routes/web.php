@@ -21,9 +21,12 @@ Route::get('home', [FrontController::class, 'index'])->name('home');
 Route::get('shirts', [FrontController::class, 'shirts'])->name('shirts');
 Route::get('shirt', [FrontController::class, 'shirt'])->name('shirt');
 
-//Route::resource('cart', 'CartController');
+// Route::resource('cart', 'CartController');
 Route::get('cart/{id}', 'CartController@edit')->name('cart.edit');
-Route::get('cart', 'CartController@index')->name('add.cart');
+Route::get('cart', 'CartController@index')->name('cart.index');
+
+Route::put('ucart/{id}', 'CartController@update')->name('cart.update');
+Route::get('deletecart/{id}', 'CartController@destroy')->name('cart.destroy');
 
 
 
