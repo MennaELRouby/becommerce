@@ -39,5 +39,6 @@
                 </tr>
             </tbody>
         </table>
+        <a href="{{ route('checkout') }}" class="button">Checkout</a>
     </div>
 @endsection

@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return $this->admin;
     }
+    public function checkout()
+    {
+        return $this->hasMany(Checkout::class);
+    }
 }

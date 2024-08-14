@@ -53,7 +53,15 @@
             });
         });
     </script>
-
+    <script type="text/javascript" src=" https://js.stripe.com/v3/"></script>
+    {{-- <script type="text/javascript" src="https://js.stripe.com/v2/"></script> --}}
+    <script type="text/javascript">
+        // Initialize Stripe with your publishable key
+        const stripe = Stripe('
+                pk_test_51PnhiSRrY7m4wkAm4rxTOXbOAc0xOl7Iv2nXq959vweaFbVpiqFPGbt3QiZ8YPi4ilr30v7AryivxbJMQmVw5sSy00ItFvTD2p ');
+    </script>
+    <script src="{{ asset('assets/js/vendor/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 </body>
 
 </html>

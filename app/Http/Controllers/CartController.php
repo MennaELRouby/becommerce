@@ -33,6 +33,7 @@ class CartController extends Controller
         // $cart = new Cart('1', '1', '1', '1', '1');
         // $cartitems = $cart->getContent();
         return view('carts.cart', compact('cartitems'));
+        // dd($cartitems);
     }
 
     /**
@@ -67,7 +68,15 @@ class CartController extends Controller
         //
 
         $product = Product::findOrFail($id);
-        Cart::add($id, $product->name, $product->price, 1, ['size' => 'large'], $product);
+        Cart::add([
+            'id' => $id,            // Unique identifier for the item
+            'name' => $product->name,  // Name of the item
+            'quantity' => 1,             // Quantity of the item
+            'price' => $product->price, // Price of a single item
+            'attributes' => ['size' => 'large'] // Additional options or attributes
+        ]);
+
+        // Cart::add($id, $product->name, $product->price, 1, ['size' => 'large']);
         return redirect()->back();
     }
 
@@ -76,7 +85,19 @@ class CartController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+
+        $request->validate([
+            'qty' => 'required|integer|min:1'
+        ]);
+        Cart::update($id, [
+            'quantity' => $request->input('qty')
+        ]);
+
+        // Cart::update($id, $request->input('qty'));
+        // Cart::update($id, array('quantity' => $request->qty,));
+        // dd($id, $request->input('qty'));
+        return redirect()->back();
     }
 
     /**
@@ -85,5 +106,8 @@ class CartController extends Controller
     public function destroy(string $id)
     {
         //
+        Cart::remove($id);
+
+        return redirect()->back();
     }
 }
